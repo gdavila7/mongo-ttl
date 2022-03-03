@@ -1,8 +1,10 @@
 const Router = require("express");
 const router = Router();
 
-const logsCtrl = require("../controllers/ttl.controller.js");
+const { createLog, getLogs } = require("../controllers/ttl.controller.js");
 
-router.post("/", logsCtrl);
+router.post("/", createLog);
+
+router.get("/", getLogs);
 
 module.exports = router;

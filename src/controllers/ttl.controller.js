@@ -1,7 +1,6 @@
 const logsModel = require("../models/LogsModel.js");
 
 const createLog = async (req, res) => {
-  console.log("en createLog func");
   const { expireAt, message, counter } = req.body;
 
   console.log(expireAt);
@@ -18,4 +17,12 @@ const createLog = async (req, res) => {
   res.status(201).json(logSaved);
 };
 
-module.exports = createLog;
+const getLogs = async (req, res) => {
+  const logs = await logsModel.find();
+  res.json(logs);
+};
+
+module.exports = {
+  createLog,
+  getLogs,
+};
