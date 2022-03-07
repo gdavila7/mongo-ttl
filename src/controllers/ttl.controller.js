@@ -1,14 +1,14 @@
 const logsModel = require("../models/LogsModel.js");
+const dayjs = require("dayjs");
+const utc = require("dayjs/plugin/utc");
+dayjs.extend(utc);
 
 const createLog = async (req, res) => {
   const { expireAt, message, counter } = req.body;
-
-  console.log(expireAt);
-  console.log(message);
-  console.log(counter);
+  const dateFormat = dayjs(expireAt).toISOString();
 
   const newLog = new logsModel({
-    expireAt: expireAt,
+    expireAt: dateFormat,
     message: message,
     counter: counter,
   });
