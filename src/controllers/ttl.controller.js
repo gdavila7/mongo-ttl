@@ -3,10 +3,6 @@ const logsModel = require("../models/LogsModel.js");
 const createLog = async (req, res) => {
   const { expireAt, message, counter } = req.body;
 
-  console.log(expireAt);
-  console.log(message);
-  console.log(counter);
-
   const newLog = new logsModel({
     expireAt: expireAt,
     message: message,

@@ -15,4 +15,4 @@ app.use(express.json());
 
 app.use("/ttlogs", ttlogs);
 
-app.listen(7000, () => console.log("server on port 7000"));
+app.listen(4000, () => console.log("server on port 4000"));
